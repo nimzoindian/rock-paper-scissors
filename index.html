@@ -5,55 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        function getComputerChoice () {
-            let choice = Math.floor(Math.random() * 3);
+    <h3 class="playerScore">Player Score: 0</h3>
+    <h3 class="playerChoice"></h3>
+    <div class="playerSelect">
+        <img src="./images/rock.png" alt="Rock" id="rock">
+        <img src="./images/paper.png" alt="Paper" id="paper">
+        <img src="./images/scissors.png" alt="scissrs" id="scissors">
+    </div>
+    <button class="newGame" onclick="resetGame()">Play Again?</button>
+    <div class="compSelect">
+        <img src="./images/rock.png" alt="Rock">
+        <img src="./images/paper.png" alt="Paper">
+        <img src="./images/scissors.png" alt="scissrs">
+    </div>
+    <h3 class="compScore">CPU Score: 0</h3>
+    <h3 class="compChoice"></h3>
 
-            if (choice == 0) return 'rock';
-            if (choice == 1) return 'paper';
-            if (choice == 2) return 'scissors';
-        }
-
-        function getPlayerChoice () {
-            let choice = prompt("Enter your choice");
-            if (choice.toLowerCase() == 'rock' || choice.toLowerCase() == 'paper' || choice.toLowerCase() == 'scissors') {
-                return choice.toLowerCase();
-            }
-        }
-
-        function playRound (playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                return draw = "It's a draw!";
-            }
-            if (playerSelection === 'rock' && computerSelection === 'paper')  {
-                return cWin = "Computer wins!";
-            }
-            if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                return pWin = "Player wins!";
-            }
-            if (playerSelection === 'paper' && computerSelection === 'rock') {
-                return pWin = "Player wins!";
-            }
-            if (playerSelection === 'paper' && computerSelection === 'scissors') {
-                return cWin = "Computer wins!";
-            }
-            if (playerSelection === 'scissors' && computerSelection === 'rock') {
-                return cWin = "Computer wins!";
-            }
-            if (playerSelection === 'scissors' && computerSelection === 'paper') {
-                return pWin = "Player wins!";    
-            }
-        }
-
-        function game() {
-            for (let i = 0; i < 5; i++) {
-                console.log(playRound(getPlayerChoice(), getComputerChoice()));
-            }
-        }
-
-        game();
-    </script>
+    <h3 class="winner"></h3>
 </body>
 </html>
